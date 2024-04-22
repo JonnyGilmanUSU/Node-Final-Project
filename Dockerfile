@@ -15,4 +15,4 @@ RUN npm install
 CMD ["npm", "start"]
 
 #Expose port 80 for web server
-EXPOSE 80
+EXPOSE 81
