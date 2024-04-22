@@ -1,0 +1,13 @@
+<h1>Manage Admin Privileges</h1>
+<form action="/update-admin-status" method="post">
+    <% users.forEach(user => { %>
+        <div>
+            <label>
+                <%= user.firstName %> <%= user.lastName %> - <%= user.email %>
+                <input type="checkbox" name="users[<%= user._id %>][isAdmin]" <%= user.admin ? 'checked' : '' %> />
+                <input type="hidden" name="users[<%= user._id %>][email]" value="<%= user.email %>" />
+            </label>
+        </div>
+    <% }); %>
+    <button type="submit">Update Admin Status</button>
+</form>

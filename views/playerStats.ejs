@@ -1,0 +1,15 @@
+<% if (teamName) { %>
+    <h2><%= teamName %></h2> <!-- Display Team Name -->
+
+    <h3>Team Stats</h3>
+    <ul>
+        <!-- Display the team stats if available -->
+        <% if (stats) { %>
+            <% Object.keys(stats).forEach(statKey => { %>
+                <li><strong><%= statKey %>:</strong> <%= stats[statKey] %></li>
+            <% }); %>
+        <% } else { %>
+            <p>No statistics available for this team.</p> <!-- If no stats -->
+        <% } %>
+    </ul>
+<% } %>

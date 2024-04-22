@@ -1,0 +1,14 @@
+<h1><span>style gallery</span></h1>
+<% if (locals.isLoggedIn && locals.user.admin) { %>
+	<p><a href="/styles/new-style">Add New Style</a></p>
+<% } %>
+<ul class="gallery">
+	<% styles.forEach((style) => { %>
+	<li>
+		<a href="styles/<%=style.styleSlug%>" name="<%=style.styleSlug%>">
+			<img src="/<%=style.imageURL%>" alt="<%=style.description%>">
+		</a>
+	</li>
+	<% }) %>
+</ul>
+</div>
