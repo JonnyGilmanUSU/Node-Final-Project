@@ -19,6 +19,7 @@ const stylesRoutes = require("./routes/stylesRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const apiRoutes = require("./routes/apiRoutes");
+const dogRoutes = require('./routes/dogRoutes');
 
 
 const middleware = require("./middleware")
@@ -76,6 +77,7 @@ app.use("/styles", stylesRoutes);
 app.use("/blog", blogRoutes);
 app.use("/contacts", contactRoutes);
 app.use("/api", apiRoutes)
+app.use(dogRoutes);
 
 
 app.use(homeRoutes);
@@ -85,5 +87,7 @@ app.use(homeRoutes);
 mongoose.connect(MONGODB_URI)
   .then(() => {
     // Launch the app
-    app.listen(process.env.PORT || 3000);
+    // app.listen(process.env.PORT || 3000);
+    app.listen(3000);
+
   })

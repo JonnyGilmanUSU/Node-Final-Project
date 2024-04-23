@@ -1,5 +1,6 @@
 const ContactRequest = require("../models/ContactRequest");
 
+
 exports.getContact = (req, res, next) => {
   res.render("contact", { pageTitle: "Contact", path: "/contacts/new" });
 };
@@ -29,6 +30,8 @@ exports.createContact = async (req, res, next) => {
       phone,
       address,
     });
+
+
     res.render("thanks", { pageTitle: "Thank You!", path: "/contacts/new" });
   } catch (e) {
     console.log("error: ", e);

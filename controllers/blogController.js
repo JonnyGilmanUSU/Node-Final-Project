@@ -24,3 +24,47 @@ exports.getSingleBlog = async (req, res, next) => {
     console.log("error: ", e);
   }
 };
+
+exports.getCreateBlogPost = (req, res, next) => {
+  res.render("createBlogPost", { pageTitle: "Create Blog Post", path: '/blog/getCreateBlogPost' });
+};
+
+
+exports.createBlogPost = async (req, res, next) => {
+  try {
+    const { title, imageURL, summary, content } = req.body;
+
+    // Create a new blog post
+    const newBlogPost = new BlogPost({
+      title,
+      imageURL,
+      summary,
+      content,
+    });
+
+    // Save the blog post to the database
+    await newBlogPost.save();
+
+    // Return a success response
+    res.status(201).json({
+      success: true,
+      message: "Blog post created successfully",
+      data: newBlogPost,
+    });
+  } catch (err) { 
+    if (err.name === "ValidationError") {
+      const messages = Object.values(err.errors).map((e) => e.message);
+      res.status(400).json({
+        success: false,
+        message: "Validation error",
+        errors: messages,
+      });
+    } else {
+      console.error("Error creating blog post:", err);
+      res.status(500).json({
+        success: false,
+        message: "An error occurred while creating the blog post",
+      });
+    }
+  }
+};

@@ -1,0 +1,30 @@
+<h1>Create a New Blog Post</h1>
+
+  <form action="/blog/createBlogPost" method="POST">
+
+    <div>
+      <input type="text" name="title" id="title" maxlength="50" required placeholder="TITLE">
+    </div>
+
+    <div>
+      <input type="url" name="imageURL" id="imageURL" pattern="([^\s]+(\.(jpg|png))$)" required placeholder="Image URL">
+    </div>
+
+    <div>
+      <textarea name="summary" id="summary" maxlength="350" required placeholder="Summary"></textarea>
+    </div>
+
+    <div>
+        <textarea name="content" id="content" required placeholder="Content:"></textarea>
+      </div>
+  
+    <div>
+        <input type="submit" name="send" id="send" value="Create Blog Post">
+    </div>
+
+    
+
+
+  <!-- Links to other pages -->
+  <a href="/blog">Back to Blog</a>
+</form>

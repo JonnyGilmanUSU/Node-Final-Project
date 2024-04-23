@@ -52,9 +52,14 @@
 			<li class="<%- path === '/manageAdmins' ? 'selected' : ''%>">
 				<a href="/manageAdmins">Manage Admins</a>
 			</li>
-			<% } %>
-		<li class="<%- path === '/restApi' ? 'selected' : ''%>">
-			<a href="/restApi">External Rest Api</a>
+		<% } %>
+		<% if (locals.isLoggedIn) { %>
+			<li class="<%- path === '/blog/getCreateBlogPost' ? 'selected' : ''%>">
+				<a href="/blog/getCreateBlogPost">Create Blog Post</a>
+			</li>
+		<% } %>
+		<li class="<%- path === '/dog' ? 'selected' : ''%>">
+			<a href="/dog">External Rest Api</a>
 		</li>
 		
 	    </ul>
